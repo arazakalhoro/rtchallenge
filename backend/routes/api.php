@@ -10,4 +10,4 @@ Route::group(['prefix' => 'tasks'], function (){
     Route::get('/{id}', [TaskController::class, 'show']);
     Route::put('/{id}', [TaskController::class, 'update']);
     Route::delete('/{id}', [TaskController::class, 'destroy']);
-});
+})->middleware(\App\Http\Middleware\AuthenticateWithJwt::class);
