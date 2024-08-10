@@ -24,6 +24,9 @@ return new class extends Migration
                 ->onDelete('cascade');
             $table->timestamps();
             $table->softDeletes();
+
+            $table->index('title');
+            $table->index('due_date');
         });
     }
 
