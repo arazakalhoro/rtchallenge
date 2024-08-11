@@ -1,0 +1,9 @@
+input.p-inputtext {
+    padding: 5px;
+}
+.p-dropdown.p-component.p-inputwrapper {
+    padding: 5px;
+}
+ol, ul{
+    padding: 0 !important;
+}

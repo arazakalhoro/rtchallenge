@@ -2,9 +2,14 @@
 declare(strict_types=1);
 namespace App\Http\Controllers;
 
+use App\Enums\TaskStatus;
 use App\Http\Requests\TaskRequest;
+use Carbon\Carbon;
 use Illuminate\Http\JsonResponse;
 use App\Models\Task;
+use Illuminate\Support\Facades\Log;
+use Yajra\DataTables\DataTables;
+
 class TaskController extends Controller
 {
     /**
@@ -14,26 +19,35 @@ class TaskController extends Controller
      * */
     public function index(): JsonResponse
     {
-        $filters = \request()->query();
-        $per_page = ($filters['per_page'] ?? 10);
-        $tasks = Task::query();
-        if(!empty($filters['title'])){
-            $tasks = $tasks->where('title', 'LIKE', '%'.$filters['title'].'%');
-        }
-        if(!empty($filters['status'])){
-            $tasks = $tasks->where('status', $filters['status']);
-        }
-        if(!empty($filters['due_date'])){
-            $tasks = $tasks->where('due_date', '>=', $filters['due_date']);
-        }
-        $tasks->orderBy('created_at', 'DESC');
-        $tasks = $tasks->paginate($per_page);
+        $tasks = Task::select(['id', 'title', 'status', 'due_date']);
+        $datatable = DataTables::of($tasks);
+        $request = request();
 
-        return response()->json([
-            'success' => false,
-            'tasks' => $tasks->items(),
-            'message' => $tasks->total() > 0 ? 'List of tasks' : 'No task(s) found'
-        ]);
+
+        return $datatable
+            ->filter(function ($query) {
+                if (request()->has('search')) {
+                    $searchValue = request('search')['value'];
+                    Log::error('search: '.$searchValue);
+                    $query->where('title', 'like', "%" . $searchValue . "%");
+                }
+            })
+            ->filterColumn('status', function($query, $keyword) {
+                $status = array_search(ucfirst($keyword), TaskStatus::getOptions());
+                if ($status !== false) {
+                    $query->where('status', $status);
+                }
+            })
+            ->filterColumn('due_date', function($query, $keyword) {
+                try{
+                    $date = Carbon::parse($keyword);
+                    Log::error('due_date: '. $date);
+                    $query->where('due_date', '=', $date->format('Y-m-d'));
+                } catch (\Exception $exception){
+                    Log::error('due_date parse error: '. $exception->getMessage());
+                }
+            })
+            ->make(true);
     }
 
     /**

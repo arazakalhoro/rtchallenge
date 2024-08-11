@@ -9,6 +9,7 @@ import Dashboard from '../../DashboardModule/components/Dashboard/Dashboard'
 import ResetPass from '../components/ResetPass/ResetPass'
 import UserProfile from "../../UsersModule/components/UserProfile/UserProfile.tsx";
 import NotFound from "../../SharedModule/components/NotFound/NotFound.tsx";
+import TaskList from "../../TasksModule/components/TaskList/TaskList.tsx";
 
 export default function RouterApp() {
     const location = useLocation()
@@ -34,7 +35,7 @@ export default function RouterApp() {
                         path=""
                         element={<Dashboard/>}
                     />
-                    {/*<Route path="tasks" element={<TasksList/>}/>*/}
+                    <Route path="tasks" element={<TaskList/>}/>
                     <Route path="profile" element={<UserProfile/>}/>
                 </Route>
                 <Route path="*" element={<NotFound/>}/>

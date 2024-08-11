@@ -619,3 +619,23 @@ color:#fff;
   background-color: #22384b !important;
   background-image: none;
 }
+
+input.p-inputtext {
+  padding: 5px;
+}
+.p-column-header-content{
+  padding: 10px;
+}
+.p-column-title {
+  padding-right: 10px;
+}
+.p-dropdown.p-component.p-inputwrapper {
+  padding: 5px;
+}
+ol, ul{
+  padding: 0 !important;
+}
+
+tbody.p-datatable-tbody td {
+  padding: 5px 15px;
+}
