@@ -8,7 +8,7 @@ use App\Http\Controllers\UserController;
 //Auth Routes
 Route::group(['prefix' => 'users','middleware' => 'auth:api'], function() {
     Route::get('profile', [UserController::class, 'profile']);
-    Route::post('update-password', [UserController::class, 'updatePassword']);
+    Route::put('update-password', [UserController::class, 'updatePassword']);
     Route::put('update-details', [UserController::class, 'updateDetails']);
 
 });

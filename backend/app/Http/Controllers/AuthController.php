@@ -129,15 +129,29 @@ class AuthController extends Controller
     {
         $data = $request->only(['email', 'token', 'password']);
         if (!$this->tokenVerification($data['token'], $data['email'])) {
-            return response()->json(['error' => 'Invalid token or email'], 400);
+            return response()->json([
+                'success' => false,
+                'message' => 'Invalid token or email'
+            ], 422);
         }
         $user = User::where('email', $data['email'])->first();
+        $user->password = Hash::make($data['password']);
+        if($user->save()){
+            $this->expireToken($data['token'], $data['email']);
+            return response()->json([
+                'success' => true,
+                'message' => 'Password changed successfully',
+            ]);
+        }
         return response()->json([
-            'success' => true,
-            'message' => 'Password changed successfully',
-        ]);
+            'success' => false,
+            'message' => 'Failed to change password'
+        ], 500);
     }
-
+    private function expireToken($token, $email)
+    {
+        DB::table('password_reset_tokens')->where('email', $email)->delete();
+    }
     private function tokenVerification($token, $email)
     {
         // Find the token record

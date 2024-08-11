@@ -1,0 +1,109 @@
+.authContainer {
+  background-image: url(../../../../assets/images/bg3.png);
+  background-size: cover;
+  background-position: center;
+}
+
+.content {
+  background-color: #315951e5;
+  border-radius: 5px;
+  color: #fff;
+}
+
+.content p {
+  margin: 0;
+  font-size: 13px;
+}
+
+.content h4 {
+  font-size: 30px;
+  color: #ef9b28;
+  position: relative;
+}
+
+.content h4::before {
+  content: "";
+  height: 3px;
+  width: 13px;
+  background-color: #ef9b28;
+  position: absolute;
+  bottom: 0;
+  left: 1px;
+}
+
+.group {
+  margin-bottom: 15px;
+  border-bottom: .3px solid #FFFFFF;
+}
+
+
+label {
+  color: #EF9B28;
+  font-size: 13px;
+}
+
+.inputLogin {
+  width: 100%;
+  color: white;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  padding: 5px;
+
+}
+
+.inputLogin::placeholder {
+  color: white;
+
+}
+
+
+.showPass {
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.btn_main {
+  background-color: rgba(239, 155, 40, 1) !important;
+  color: #fff !important;
+  width: 100%;
+  padding: 11px 0px !important;
+  border-radius: 20px !important;
+  -webkit-border-radius: 20px !important;
+  -moz-border-radius: 20px !important;
+  -ms-border-radius: 20px !important;
+  -o-border-radius: 20px !important;
+}
+.btn_main:hover {
+  background-color: #ffca2c !important;
+  color: #212529 !important;
+
+}
+
+
+.inputStyle {
+  border: 0;
+  border-bottom: 1px solid #DEE2E6;
+}
+
+.inputContainer {
+  border-bottom: 1px #DEE2E6 solid;
+}
+
+.inputError {
+  /* border-bottom: 1px #EF9B28 solid; */
+  border-bottom: 1px #FFC107 solid;
+}
+
+.textGold {
+  color: hsla(35, 86%, 55%, 1);
+  font-size: 1vw;
+  transition: all .3s;
+  -webkit-transition: all .3s;
+  -moz-transition: all .3s;
+  -ms-transition: all .3s;
+  -o-transition: all .3s;
+}
+.textGold:hover {
+  color:#fff;
+}

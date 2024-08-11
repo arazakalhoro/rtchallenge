@@ -1,0 +1,43 @@
+.textGold {
+  color: hsla(35, 86%, 55%, 1);
+}
+.btnGold {
+  background-color: hsla(35, 86%, 55%, 1) !important;
+}
+.headerContainer {
+  background-image: url(../../../../assets/images/home-bg.png);
+  background-size: cover;
+}
+
+.bgProgress {
+  background-color: #e5e6f4;
+}
+.bgTasks {
+  background-color: #f4f4e5;
+}
+.bgProjects {
+  background-color: #f4e5ed;
+}
+.bgProjectNoicon {
+  background-color: #e7c3d7;
+}
+.bgProjectTaskicon {
+  background-color: #e4e4bc;
+}
+.bgProgressicon {
+  background-color: #cfd1ec;
+}
+
+.textPadding {
+  font-weight: 500 !important;
+  font-size: 13px !important;
+  line-height: 15.73px !important;
+}
+/* .task {
+  background: red;
+} */
+
+.chart {
+  width: 50%;
+  margin: 0 auto;
+}

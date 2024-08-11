@@ -1,0 +1,78 @@
+.authcontainer {
+    background-image: url("/src/assets/images/bg1.png");
+    background-repeat: no-repeat;
+        background-size: 100% 100%;
+        min-height: 100vh;
+}
+
+.input {
+    background-color: transparent !important;
+    border-bottom: .3px white solid !important;
+    border: none;
+    outline: none !important;
+
+}
+
+.input:focus {
+    background-color: transparent !important;
+
+}
+
+.input::placeholder {
+    color: white;
+}
+.input1 {
+    background-color: transparent !important;
+   
+    border: none;
+    outline: none !important;
+
+}
+
+.input1:focus {
+    background-color: transparent !important;
+
+}
+
+.input1::placeholder {
+    color: white;
+}
+
+.bgFormContainer {
+    background-color: rgba(49, 89, 81, 0.692);
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+}
+
+.file {
+    display: none;
+}
+
+.profileImg {
+    cursor: pointer;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    opacity: 50%;
+}
+
+.profileIcon {
+    right: 49.5%;
+    top: 49.5%;
+    color: hsla(35, 86%, 55%, 1)}
+
+.textGold {
+    color: hsla(35, 86%, 55%, 1);
+}
+
+.btnGold {
+    background-color: hsla(35, 86%, 55%, 1) !important;
+}
+
